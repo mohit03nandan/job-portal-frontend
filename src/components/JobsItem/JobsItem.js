@@ -3,17 +3,7 @@ import React from "react";
 const JobsItem = () => {
   return (
     <div class="container-fluid">
-       {/* <div class="card w-50">
-  <div class="card-body">
-   
-  </div>
-</div>
-
-<div class="card w-50">
-  <div class="card-body">
     
-  </div>
-</div> */}
       <div
         class="card"
         style={{

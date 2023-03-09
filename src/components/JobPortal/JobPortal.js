@@ -1,7 +1,29 @@
-import React from "react";
+import React,{useState} from "react";
 import JobsItem from "../JobsItem/JobsItem";
+import AddJobs from "../AddJobs/AddJobs";
 
 const JobPortal = () => {
+
+   
+    const [view, setview] = useState(0)
+
+
+    function addjobbing(){
+        setview(1);
+        console.log("button clicked")
+        console.log(view)
+    }
+
+    const Pagination = () =>{
+        if(view === 1){
+            return <AddJobs/>
+        
+        }
+      
+    }
+
+
+
   return (
     <div>
       <div
@@ -14,6 +36,7 @@ const JobPortal = () => {
         }}
       >
         <div class="card-body">
+        {Pagination()}
           <div class="d-flex bd-highlight mb-3">
             <div class="p-2 bd-highlight">
               <div class="input-group mb-3">
@@ -64,9 +87,10 @@ const JobPortal = () => {
               </div>
             </div>
             <div class="ms-auto p-2 bd-highlight">
-              <button type="button" class="btn btn-primary">
+              <button type="button" class="btn btn-primary" onClick={addjobbing} data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                 + Add Job
               </button>
+            
             </div>
           </div>
           <p style={{ color: "#858585", fontSize: "25px", fontWeight: "500" }}>
