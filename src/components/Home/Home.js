@@ -1,5 +1,6 @@
 import React from "react";
 import JobPortal from "../JobPortal/JobPortal";
+import JobDescription from "../JobDescription/JobDescription";
 const Home = () => {
   return (
     <div class="container-fluid">
@@ -25,8 +26,8 @@ const Home = () => {
         <div class="p-2 bd-highlight"><h4 style={{color:"#858585"}}>and  </h4></div>
         <div class="p-2 bd-highlight"><h4 style={{color:"#0038FF"}}>Cuvette </h4></div>
    </div>
-
-   <JobPortal/>
+   <JobDescription/>
+   {/* <JobPortal/> */}
 
     </div>
 

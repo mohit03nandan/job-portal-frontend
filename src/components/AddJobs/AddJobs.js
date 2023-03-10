@@ -106,9 +106,9 @@ const AddJobs = () => {
                     }}
                   />
                 </div>
-                <div class="p-2 bd-highlight" className={styles.heading}>
-                  Job type {" "}
+                <div class="p-2 bd-highlight" className={styles.heading} >
                   <div class="dropdown">
+                  Job type {" "}
                     <button
                       class="btn btn-light dropdown-toggle"
                       type="button"
@@ -127,8 +127,9 @@ const AddJobs = () => {
                   </div>
                 </div>
                 <div class="p-2 bd-highlight" className={styles.heading}>
-                  Remote/Office
+                  
                   <div class="dropdown">
+                  Remote/Office
                     <button
                       class="btn btn-light dropdown-toggle"
                       type="button"
