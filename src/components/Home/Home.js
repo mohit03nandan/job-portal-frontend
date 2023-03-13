@@ -1,7 +1,15 @@
-import React from "react";
+import React,{useState} from "react";
+import {BrowserRouter, Route, Routes} from "react-router-dom"
 import JobPortal from "../JobPortal/JobPortal";
 import JobDescription from "../JobDescription/JobDescription";
 const Home = () => {
+  
+
+const [fetchingdatafromjobportalHome, setfetchingdatafromjobportalHome] = useState()
+const [id, setid] = useState()
+console.log("id",id)
+console.log("fetchingdatafromjobportalHome",fetchingdatafromjobportalHome)
+// console.log(fetchingdatafromjobportalHome.id)
   return (
     <div class="container-fluid">
       <div class="d-flex bd-highlight mb-3">
@@ -9,7 +17,7 @@ const Home = () => {
           <img src={require("../Images/mountain.png")} alt="logo" />
         </div>
         <div class="p-2 bd-highlight" style={{ color: "#0038FF" }}>
-          <h2 style={{ padding: "20px" }}>Findmyjobs</h2>
+          <h2 style={{ padding: "20px" }} >Findmyjobs</h2>
         </div>
         <div class="ms-auto p-2 bd-highlight" style={{ color: "#A4A4A4" }}>
           <h5 style={{ padding: "20px" }}>Hello Recruiter !</h5>
@@ -26,8 +34,16 @@ const Home = () => {
         <div class="p-2 bd-highlight"><h4 style={{color:"#858585"}}>and  </h4></div>
         <div class="p-2 bd-highlight"><h4 style={{color:"#0038FF"}}>Cuvette </h4></div>
    </div>
-   <JobDescription/>
-   {/* <JobPortal/> */}
+ <BrowserRouter>
+    <Routes>
+         <Route path="/"  element={ <JobPortal  pullDataHome={setfetchingdatafromjobportalHome} pullspecificidtohome={setid}  />}/>  
+    </Routes>
+    <Routes>
+        <Route  path='/about/:id' element={<JobDescription  pushDataHome={fetchingdatafromjobportalHome}/>    }/>
+    </Routes>
+ </BrowserRouter>
+ {/* <JobPortal/> */}
+  
 
     </div>
 
