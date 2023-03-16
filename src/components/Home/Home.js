@@ -1,15 +1,16 @@
-import React,{useState} from "react";
+import React,{useState,useEffect} from "react";
 import {BrowserRouter, Route, Routes} from "react-router-dom"
 import JobPortal from "../JobPortal/JobPortal";
 import JobDescription from "../JobDescription/JobDescription";
 const Home = () => {
   
+const [pushandpulldatafromjobprtaltodescription, setpushandpulldatafromjobprtaltodescription] = useState()
 
-const [fetchingdatafromjobportalHome, setfetchingdatafromjobportalHome] = useState()
-const [id, setid] = useState()
-console.log("id",id)
-console.log("fetchingdatafromjobportalHome",fetchingdatafromjobportalHome)
-// console.log(fetchingdatafromjobportalHome.id)
+ useEffect( () => {
+}, [pushandpulldatafromjobprtaltodescription])
+
+
+
   return (
     <div class="container-fluid">
       <div class="d-flex bd-highlight mb-3">
@@ -36,13 +37,13 @@ console.log("fetchingdatafromjobportalHome",fetchingdatafromjobportalHome)
    </div>
  <BrowserRouter>
     <Routes>
-         <Route path="/"  element={ <JobPortal  pullDataHome={setfetchingdatafromjobportalHome} pullspecificidtohome={setid}  />}/>  
+         <Route path="/"  element={ <JobPortal  pullDatafromjobportal={setpushandpulldatafromjobprtaltodescription}  />}/>  
     </Routes>
     <Routes>
-        <Route  path='/about/:id' element={<JobDescription  pushDataHome={fetchingdatafromjobportalHome}/>    }/>
+        <Route  path='/about/:id' element={<JobDescription  pushdatatojobdescription={pushandpulldatafromjobprtaltodescription}  />}    />
     </Routes>
  </BrowserRouter>
- {/* <JobPortal/> */}
+
   
 
     </div>
