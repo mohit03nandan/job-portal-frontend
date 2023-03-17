@@ -2,7 +2,7 @@ import axios from "axios";
 
 
 export async function getjobPortal(){
-    const reqUrl = "http://localhost:3001/portal/get-jobPortal";
+    const reqUrl = "https://jobportalbackend-6pa0.onrender.com/portal/get-jobPortal";
     const result = await axios.get(reqUrl);
     console.log(result.data)
     if(result.data) {
@@ -12,7 +12,7 @@ export async function getjobPortal(){
 
 
 export async function getjoblocation(){
-    const reqUrl = "http://localhost:3001/portal/get-location";
+    const reqUrl = "https://jobportalbackend-6pa0.onrender.com/portal/get-location";
     const result = await axios.get(reqUrl);
     console.log(result.data)
     if(result.data) {
@@ -21,7 +21,7 @@ export async function getjoblocation(){
 }
 
 export async function getjobskills(){
-    const reqUrl = "http://localhost:3001/portal/get-skills";
+    const reqUrl = "https://jobportalbackend-6pa0.onrender.com/portal/get-skills";
     const result = await axios.get(reqUrl);
     console.log(result.data)
     if(result.data) {
@@ -30,7 +30,7 @@ export async function getjobskills(){
 }
 
 export async function getjobDataAtDescription(){
-    const reqUrl = "http://localhost:3001/portal/Desc";
+    const reqUrl = "https://jobportalbackend-6pa0.onrender.com/portal/Desc";
     const result = await axios.get(reqUrl);
     console.log(result.data)
     if(result.data) {

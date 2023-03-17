@@ -3,7 +3,8 @@ import styles from "./AddJobs.module.css";
 import Chips from "react-chips";
 import axios from "axios";
 import { getjobPortal } from "../../api/api";
-
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const AddJobs = (props) => {
   const [companyName, setcompanyName] = useState("");
   const [companyLogo, setcompanyLogo] = useState("");
@@ -42,7 +43,7 @@ const AddJobs = (props) => {
       Description !== "" &&
       About !== ""
     ) {
-      await axios.post("http://localhost:3001/portal", {
+      await axios.post("https://jobportalbackend-6pa0.onrender.com/portal", {
         companyName: companyName,
         companyLogo: companyLogo,
         Position: Position,
@@ -59,12 +60,17 @@ const AddJobs = (props) => {
       const data = await getjobPortal();
       props.pullData(data);
 
+      toast.success("submit successfully", {
+        position: toast.POSITION.TOP_RIGHT,
+      })
+      
       window.location.reload(true);
     }
   };
 
   return (
     <div>
+    <ToastContainer/>
       <form class="was-validated">
         <div
           class="modal fade"

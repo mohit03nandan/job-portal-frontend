@@ -20,8 +20,9 @@ const JobDescription = (props) => {
   const [created, setcreated] = useState();
 
   async function getjobPortalDataatDesc() {
+
     try {
-      const result = await axios.get(`http://localhost:3001/portal/Desc/${id}`);
+      const result = await axios.get(`https://jobportalbackend-6pa0.onrender.com/portal/Desc/${id}`);
       setcompanyName(result.data[0].companyName);
       setcompanyLogo(result.data[0].logo);
       setPosition(result.data[0].jobPosition);
@@ -34,8 +35,10 @@ const JobDescription = (props) => {
       setskill(result.data[0].skills);
       setcreated(result.data[0].createdAt);
     } catch (error) {
-      console.error(error);
+      console.log(error)
     }
+    
+      
   }
 
   useEffect(() => {
@@ -98,7 +101,7 @@ const JobDescription = (props) => {
                 style={{ border: "2px solid #CECECE" }}
                 onClick={(e) => {
                   navigator.clipboard.writeText(
-                    `http://localhost:3000/about/${id}`
+                    `${window.location.href}`
                   );
                   toast.success("copied", {
                     position: toast.POSITION.TOP_RIGHT,

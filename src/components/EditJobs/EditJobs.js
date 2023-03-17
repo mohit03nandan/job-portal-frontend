@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import styles from "./EditJobs.module.css";
 import Chips from "react-chips";
 import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import { getjobPortal } from "../../api/api";
 
@@ -77,7 +79,7 @@ const EditJobs = (props) => {
 
   const updatejobPortal = async () => {
 
-    await axios.post("http://localhost:3001/portal/portalupdate", {
+    await axios.post("https://jobportalbackend-6pa0.onrender.com/portal/portalupdate", {
       companyName: companyName,
       companyLogo: companyLogo,
       Position: Position,
@@ -97,6 +99,11 @@ const EditJobs = (props) => {
     const data = await getjobPortal();
 
     props.pushrefrshpage(data);
+
+    toast.success("updated successfully", {
+      position: toast.POSITION.TOP_RIGHT,
+    })
+    
     
   };
 
@@ -121,6 +128,7 @@ const EditJobs = (props) => {
 
   return (
     <div>
+    <ToastContainer />
       <form class="was-validated">
         <div
           class="modal fade"

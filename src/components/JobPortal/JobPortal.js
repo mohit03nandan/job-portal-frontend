@@ -400,7 +400,7 @@ const JobPortal = (props) => {
                               onClick={(e) => {
                                 e.stopPropagation();
                                 navigator.clipboard.writeText(
-                                  `http://localhost:3000/about/${portalData._id}`
+                                  `${window.location.href}about/${portalData._id}`
                                 );
                                 toast.success("copied !", {
                                   position: toast.POSITION.TOP_RIGHT,
